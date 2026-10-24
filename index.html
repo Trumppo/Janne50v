@@ -27,7 +27,7 @@
 .portrait-overlay{position:absolute;z-index:3;right:2%;bottom:0;width:46%;height:100%;object-fit:contain;object-position:center bottom;image-rendering:pixelated;pointer-events:none}
 .scene>svg{display:none}
 .scene>.sand-vortices{display:block!important;position:absolute;z-index:1;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden;opacity:.62;image-rendering:pixelated}
-.scene>.subsurface-worm{display:block!important}
+.scene>.subsurface-worm{display:none!important}
 .dust{display:none!important}
 .sand-vortices path{fill:none;stroke:#f6c878;stroke-linecap:round;filter:drop-shadow(0 1px #a8512c)}
 .sand-vortices .stream-a{stroke-width:5;opacity:.42;animation:vortex-flow-a 11s ease-in-out infinite alternate}
@@ -39,24 +39,14 @@
 .card.intro{animation:card-fade-in 2s ease both}
 .worm-layer{animation:none;transition:opacity .2s ease,transform .2s ease}
 .active .worm-layer{opacity:1;animation:worm-pop 1.35s 3.4s cubic-bezier(.2,.85,.25,1) both}
-.subsurface-worm{position:absolute;z-index:2;left:-32%;bottom:0;width:48%;height:42%;overflow:visible;opacity:0;pointer-events:none;shape-rendering:crispEdges;filter:drop-shadow(0 7px 0 rgba(80,35,24,.46))}
-.subsurface-worm .burrow-shadow{fill:#713829;opacity:.9}
-.subsurface-worm .sand-wave{fill:none;stroke:#f6c878;stroke-linecap:square;stroke-width:8;opacity:.76}
-.subsurface-worm .sand-wave.deep{stroke:#a8512c;stroke-width:13;opacity:.64}
-.subsurface-worm .burrow-ridge{transform-box:fill-box;transform-origin:center bottom}
-.subsurface-worm .worm-body{fill:#c8753d;stroke:#743727;stroke-width:5}
-.subsurface-worm .worm-segment{fill:none;stroke:#f6c878;stroke-width:6;stroke-linecap:square;opacity:.82}
-.subsurface-worm .worm-highlight{fill:#f6c878;opacity:.88}
-.subsurface-worm .worm-shadow{fill:#8b452e;opacity:.95}
-.active .subsurface-worm{animation:subsurface-worm-pass 3.4s cubic-bezier(.2,.75,.25,1) both}
-.active .subsurface-worm .burrow-ridge{animation:burrow-ridge-bob .42s steps(2,end) infinite alternate}
+.scene:after{content:"";position:absolute;z-index:2;left:-58%;bottom:-2%;width:78%;height:42%;background:url("assets/shai-hulud-burrow.png") center/100% 100% no-repeat;image-rendering:pixelated;pointer-events:none;opacity:0}
+.active .scene:after{animation:pixel-burrow-pass 9s steps(28,end) both}
 .portrait-overlay{opacity:0;transform:translateY(14px) scale(.98)}
 .janne-revealed .portrait-overlay{animation:portrait-fade-in 2s ease both}
 @keyframes card-fade-in{from{opacity:0}to{opacity:1}}
 @keyframes portrait-fade-in{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
 @keyframes worm-pop{0%{opacity:0;transform:translateX(-75%) translateY(18px) scale(.72)}48%{opacity:1;transform:translateX(5%) translateY(-14px) scale(1.06)}72%{transform:translateX(-3%) translateY(5px) scale(.98)}100%{opacity:1;transform:translateX(0) translateY(0) scale(1)}}
-@keyframes subsurface-worm-pass{0%{opacity:0;transform:translateX(0) translateY(8px) scale(.75)}8%{opacity:.9}42%{opacity:1;transform:translateX(345%) translateY(-5px) scaleX(1.15)}67%{opacity:.95;transform:translateX(35%) translateY(4px) scaleX(.92)}87%{opacity:.55;transform:translateX(-18%) translateY(9px) scale(.82)}100%{opacity:0;transform:translateX(35%) translateY(12px) scale(.6)}}
-@keyframes burrow-ridge-bob{from{transform:translateY(4px) scaleY(.9)}to{transform:translateY(-2px) scaleY(1.06)}}
+@keyframes pixel-burrow-pass{0%,9%{opacity:0;transform:translateX(0)}14%{opacity:1}45%{transform:translateX(198%)}53%{transform:translateX(198%)}88%{transform:translateX(12%)}95%,100%{opacity:0;transform:translateX(12%)}}
 .music-player{margin:4px auto 0;max-width:360px;text-align:left;color:#e4bc88}
 .music-player audio{display:none}
 .music-credit{margin:6px 0 0;font:10px/1.35 monospace;color:#b98c68}
